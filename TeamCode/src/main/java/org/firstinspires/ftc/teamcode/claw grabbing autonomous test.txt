@@ -1,0 +1,53 @@
+					if ((labels.contains("Skystone") || labels.contains("Stone")) && labels.size() == 1)
+                    {
+                        spotted = true;
+
+                        middle_x = (updatedRecognitions.get(0).getRight() + updatedRecognitions.get(0).getLeft()) / 2.0;
+                        middle_y = (updatedRecognitions.get(0).getBottom() + updatedRecognitions.get(0).getTop()) / 2.0;
+                        telemetry.addData("say:", "Middle X is:" + middle_x);
+                        telemetry.addData("say:", "Middle Y is:" + middle_y);
+                        telemetry.addData("say:", "Tightening is:" + tightening);
+
+                        if (!grabbing & !grabbed) {
+                            if (middle_x < 400) { turn(T_LEFT); }
+                            if (middle_x > 500) { turn(T_RIGHT); }
+                            if ((400 < middle_x) && (middle_x < 500)) { drive(D_FORWARD); }
+                        }
+                        if (grabbing)
+                        {
+                            if (tightening < 50) { tightening += 1; }
+                            if (tightening >= 50) { grabbed = true; }
+                        }
+                        if (grabbed) {
+                            grabbing = false;
+                            claw(C_RAISE);
+                        }
+
+                        /*if (updatedRecognitions.get(0).getTop() < 640) { drive(D_FORWARD); }
+                        if (updatedRecognitions.get(0).getTop() > 660) { drive(D_BACKWARD); }
+                        if (updatedRecognitions.get(0).getLeft() < 350) { pan(P_RIGHT); }
+                        if (updatedRecognitions.get(0).getLeft() > 370) { pan(P_LEFT); }*/
+                    }
+                    if (labels.size() == 0)
+                    {
+                        telemetry.addData("say:", "Tightening is " + tightening);
+                        if (spotted)
+                        {
+                            grabbing = true;
+                            claw(C_TIGHT);
+                            spotted = false;
+                        }
+                        if (grabbing)
+                        {
+                            if (tightening < 50) { tightening += 1; }
+                            if (tightening >= 50) { grabbed = true; }
+                        }
+                        if (grabbed) {
+                            grabbing = false;
+                            claw(C_RAISE);
+                        }
+                        drive(D_STOP);
+                        //claw(C_OPEN);
+                        pan(P_STOP);
+                    }
+                    }

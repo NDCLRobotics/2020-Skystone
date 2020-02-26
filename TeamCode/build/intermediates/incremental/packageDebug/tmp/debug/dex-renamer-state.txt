@@ -1,0 +1,4 @@
+#Wed Feb 26 15:52:05 EST 2020
+base.0=C\:\\Users\\Robotics1\\Desktop\\Skystone 2019-2020 Code\\TeamCode\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+path.0=classes.dex
+renamed.0=classes.dex
