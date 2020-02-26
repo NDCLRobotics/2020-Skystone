@@ -130,7 +130,7 @@ public class yeet extends OpMode
         //clawServoPower = clawServo.getPower();
 
 
-        telemetry.addData("say: ", "Working, latest updated: 12/11/19 4:43 PM");
+        telemetry.addData("say: ", "Working, latest updated: 02/26/20 4:20 PM");
     }
 
     @Override
@@ -148,7 +148,7 @@ public class yeet extends OpMode
         double panPower = powerScale + 0.2;
 
         // messages displayed on the phone while running
-        telemetry.addData("say:", "Working. Last Updated: 02/25/20 4:58 PM");
+        telemetry.addData("say:", "Working. Last Updated: 02/26/20 4:20 PM");
         telemetry.addData("say:", "Power Scale equals: " + powerScale);
         telemetry.addData("say:", "Servo Power equals: " + clawServo.getPower());
         telemetry.addData("say:", "Current Claw Position: " + clawMotor.getCurrentPosition());
@@ -311,7 +311,7 @@ public class yeet extends OpMode
         }
 
         // tape measure controls
-        if (gamepad1.start)
+        if (gamepad1.start && !gamepad1.back)
         {
             if ((tapeMotor.getCurrentPosition() < (tapeMotorZero + tapeLimit)) && (tapeMotor.getCurrentPosition() >= tapeMotorZero))
             {
@@ -325,6 +325,17 @@ public class yeet extends OpMode
         else
         {
             tapeMotor.setPower(0.0);
+        }
+        if (gamepad1.back && !gamepad1.start)
+        {
+            if (tapeMotor.getCurrentPosition() >= tapeMotorZero)
+            {
+                tapeMotor.setPower(-0.5);
+            }
+            else
+            {
+                tapeMotor.setPower(0.0);
+            }
         }
 
         // claw grasp
