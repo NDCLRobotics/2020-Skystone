@@ -77,7 +77,7 @@ public class yeet extends OpMode
 
     // control hub 2
     private DcMotor clawMotor = null;
-    public CRServo clawServo;
+    private CRServo clawServo;
     private DcMotor tapeMotor = null;
 
     private int clawMotorZero;
@@ -90,8 +90,6 @@ public class yeet extends OpMode
     private boolean powerSwitching = false;
     // when activated, the two control sticks will be inverted
     private boolean inverseControls = false;
-
-    private int check = 0;
 
     // scale down power from max for driving
     private double powerScale = 0.75;
@@ -141,6 +139,7 @@ public class yeet extends OpMode
     @Override
     public void loop() {
 
+        // doubles for driving and panning
         double frontLeftPower, frontRightPower, backLeftPower, backRightPower;
         double frontLeftPan, frontRightPan, backLeftPan, backRightPan;
 
@@ -152,10 +151,10 @@ public class yeet extends OpMode
         telemetry.addData("say:", "Power Scale equals: " + powerScale);
         telemetry.addData("say:", "Servo Power equals: " + clawServo.getPower());
         telemetry.addData("say:", "Current Claw Position: " + clawMotor.getCurrentPosition());
-        if (clawDebug == false)
+        if (!clawDebug)
             { telemetry.addData("say:", "Debug mode is off"); } else
             { telemetry.addData("say:", "Debug mode is ON!!!"); }
-        if (inverseControls == false)
+        if (!inverseControls)
             { telemetry.addData("say:", "Controls are regular"); } else
             { telemetry.addData("say:", "BEWARE - Controls are REVERSED!!!"); }
         telemetry.addData("say:", "Current Tape Measure Position: " + tapeMotor.getCurrentPosition());
@@ -194,7 +193,7 @@ public class yeet extends OpMode
             panPower = 0.25;
         }
 
-
+        // activation and deactivation of inverse controls
         if (gamepad1.y)
         {
             inverseControls = !inverseControls;
@@ -204,7 +203,7 @@ public class yeet extends OpMode
         int clawLimit = 20000;
         int tapeLimit = 20000;
 
-        //This is where we set the code to the location on the controller
+        // linking the drive commands to the controller
         double drive = gamepad1.left_stick_y;
         double turn = gamepad1.right_stick_x;
         double pan = gamepad1.left_stick_x;
@@ -223,7 +222,7 @@ public class yeet extends OpMode
 
 
         // panning, based on original code for two motor turning, capped at 1 and -1
-        if (inverseControls == false)
+        if (!inverseControls)
         {
             frontLeftPan = Range.clip(drive + pan, -1.0, 1.0);
             frontRightPan = Range.clip(drive - pan, -1.0, 1.0);
@@ -244,7 +243,7 @@ public class yeet extends OpMode
             backLeftMotor.setPower(powerScale * backLeftPower);
             backRightMotor.setPower(powerScale * backRightPower);
         }
-        if (inverseControls == true)
+        if (inverseControls)
         {
             frontLeftPan = Range.clip(-drive - pan, -1.0, 1.0);
             frontRightPan = Range.clip(-drive + pan, -1.0, 1.0);
@@ -278,11 +277,6 @@ public class yeet extends OpMode
             if (clawDebug)
             {
                 clawMotorZero = clawMotor.getCurrentPosition();
-                //telemetry.addData("say:", "Debug mode is deactivated " + check++);
-            }
-            else
-            {
-                //telemetry.addData("say:", "Debug mode is activated " + check++);
             }
 
             clawDebug = !clawDebug;
@@ -339,52 +333,22 @@ public class yeet extends OpMode
         }
 
         // claw grasp
-        // setPower for a CR motor is basically setPosition?
-        // caps at +/- 1.0
-
-        // open: 0.0
-        // wide block: -0.1
-        // narrow block: -0.45
-
-        //0.2 = 2.125"
-
         // right bumper: grab, left bumper: release
         if (gamepad1.left_bumper)
         {
-            //clawServo.setDirection(DcMotorSimple.Direction.REVERSE);
             clawServo.setPower(0.15);
-            //telemetry.addData("say:", "power +");
 
         } else if (gamepad1.right_bumper)
         {
-            //clawServo.setDirection(DcMotorSimple.Direction.FORWARD);
-
             if (gamepad1.b)
             {
-                // grab stone narrow or capstone
-                //telemetry.addData("say:", "flag X");
                 clawServo.setPower(-0.55);
-
             }
             else
             {
-                // grab stone wide
                 clawServo.setPower(-0.125);
-                //telemetry.addData("say:", "flag Y");
-
             }
-
-            //telemetry.addData("say:", clawServo.getPower());
-        } else {
-            //clawServo.setPower(0.5);
         }
-
-
-        //telemetry.addData("say:", "Servo \"power\" set to: " + clawServo.getPower());
-
-
-
-
     }
 
     @Override
