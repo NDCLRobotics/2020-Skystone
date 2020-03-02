@@ -127,7 +127,7 @@ public class yeet extends OpMode
         clawServo.setDirection(DcMotorSimple.Direction.FORWARD);
 
 
-        telemetry.addData("say: ", "Working, latest updated: 03/02/20 3:29 PM");
+        telemetry.addData("say: ", "Working, latest updated: 03/02/20 4:02 PM");
     }
 
     @Override
@@ -146,17 +146,20 @@ public class yeet extends OpMode
         double panPower = powerScale + 0.2;
 
         // messages displayed on the phone while running
-        telemetry.addData("say:", "Working. Last Updated: 03/02/20 3:29 PM");
+        telemetry.addData("say:", "Working. Last Updated: 03/02/20 4:02 PM");
         telemetry.addData("say:", "Power Scale equals: " + powerScale);
         telemetry.addData("say:", "Servo Power equals: " + clawServo.getPower());
+        if (!inverseControls)
+        { telemetry.addData("say:", "Controls are regular"); } else
+        { telemetry.addData("say:", "Controls are inverted"); }
         telemetry.addData("say:", "Current Claw Position: " + clawMotor.getCurrentPosition());
         if (!clawDebug)
-            { telemetry.addData("say:", "Debug mode is off"); } else
-            { telemetry.addData("say:", "Debug mode is ON!!!"); }
-        if (!inverseControls)
-            { telemetry.addData("say:", "Controls are regular"); } else
-            { telemetry.addData("say:", "BEWARE - Controls are REVERSED!!!"); }
+        { telemetry.addData("say:", "Claw debug mode is off"); } else
+        { telemetry.addData("say:", "Claw debug mode is on"); }
         telemetry.addData("say:", "Current Tape Measure Position: " + tapeMotor.getCurrentPosition());
+        if (!tapeDebug)
+        { telemetry.addData("say:", "Tape debug mode is off"); } else
+        { telemetry.addData("say:", "Tape debug mode is on)"); }
 
         // increase or decrease powerScale
         if (gamepad1.dpad_up && !powerSwitching)

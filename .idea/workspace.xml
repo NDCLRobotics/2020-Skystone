@@ -320,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583182279952</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add a tape measure debug mode">
+      <created>1583182715601</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583182715601</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -342,7 +349,8 @@
     <MESSAGE value="Test Git on new laptop." />
     <MESSAGE value="Clean up code, add more comments, make comments consistent." />
     <MESSAGE value="Actually put a decent ReadMe relating to our code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actually put a decent ReadMe relating to our code" />
+    <MESSAGE value="Add a tape measure debug mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a tape measure debug mode" />
   </component>
   <component name="masterDetails">
     <states>
