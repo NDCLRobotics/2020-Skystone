@@ -126,7 +126,7 @@ public class yeet extends OpMode
 
         clawServo.setDirection(DcMotorSimple.Direction.FORWARD);
 
-
+        // message displayed on the phone before initialization
         telemetry.addData("say: ", "Working, latest updated: 03/02/20 4:02 PM");
     }
 
@@ -159,7 +159,7 @@ public class yeet extends OpMode
         telemetry.addData("say:", "Current Tape Measure Position: " + tapeMotor.getCurrentPosition());
         if (!tapeDebug)
         { telemetry.addData("say:", "Tape debug mode is off"); } else
-        { telemetry.addData("say:", "Tape debug mode is on)"); }
+        { telemetry.addData("say:", "Tape debug mode is on"); }
 
         // increase or decrease powerScale
         if (gamepad1.dpad_up && !powerSwitching)
@@ -326,7 +326,7 @@ public class yeet extends OpMode
         // tape measure controls
         if (gamepad1.start && !gamepad1.back)
         {
-            if ((tapeMotor.getCurrentPosition() < (tapeMotorZero + tapeLimit)) && (tapeMotor.getCurrentPosition() >= tapeMotorZero) || tapeDebug)
+            if (((tapeMotor.getCurrentPosition() < (tapeMotorZero + tapeLimit)) && (tapeMotor.getCurrentPosition() >= tapeMotorZero)) || tapeDebug)
             {
                 tapeMotor.setPower(0.5);
             }
