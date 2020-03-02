@@ -417,8 +417,8 @@ public class VLAutoBlueFoundation extends LinearOpMode {
                         telemetry.addData("Loop count:", +loopCount);
                         telemetry.addData("Time is:", finalTime);
                         telemetry.addData("Ms/loop", finalTime / loopCount);
-                        telemetry.addData(">", "Version ID: 20200302-2");
-                        telemetry.addData(">", "Latest Commit: 2020-03-02 16:32");
+                        telemetry.addData(">", "Version ID: 20200302-3");
+                        telemetry.addData(">", "Latest Commit: 2020-03-02 16:38");
                         /* if (autonomous == true)
                         {
                             do.autonomous;
@@ -452,12 +452,12 @@ public class VLAutoBlueFoundation extends LinearOpMode {
                         if (finalTime > 16500 && finalTime < 18500) {
                             claw(C_LOWER);
                         }
-                        if (finalTime > 18500 && finalTime < 20000) {
+                        if (finalTime > 18500 && finalTime < 19500) {
                             claw(C_REST);
                             pan(P_RIGHT);
                         }
                         //temporary stop code
-                        if (finalTime > 20000)
+                        if (finalTime > 19500)
                         {
                             drive(D_STOP);
                             pan(P_STOP);
