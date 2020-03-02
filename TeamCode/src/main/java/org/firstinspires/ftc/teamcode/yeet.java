@@ -83,11 +83,13 @@ public class yeet extends OpMode
     private int clawMotorZero;
     private int tapeMotorZero;
 
-    // variables for debug mode in setting claw height
+    // variables for debug mode in setting claw height and tape measure distance
     private boolean clawDebug = false;
+    private boolean tapeDebug = false;
     // switching is a workaround to allow only one frame input
     private boolean switching = false;
     private boolean powerSwitching = false;
+    private boolean tapeSwitching = false;
     // when activated, the two control sticks will be inverted
     private boolean inverseControls = false;
 
@@ -123,9 +125,6 @@ public class yeet extends OpMode
         tapeMotorZero = tapeMotor.getCurrentPosition();
 
         clawServo.setDirection(DcMotorSimple.Direction.FORWARD);
-
-        // zero servo
-        //clawServoPower = clawServo.getPower();
 
 
         telemetry.addData("say: ", "Working, latest updated: 03/02/20 3:29 PM");
@@ -304,10 +303,27 @@ public class yeet extends OpMode
             }
         }
 
+        // tape measure debug mode
+        if (gamepad1.x && !tapeSwitching)
+        {
+            tapeSwitching = true;
+
+            if (tapeDebug)
+            {
+                tapeMotorZero = tapeMotor.getCurrentPosition();
+            }
+
+            tapeDebug = !tapeDebug;
+        }
+        else if (!gamepad1.x && tapeSwitching)
+        {
+            tapeSwitching = false;
+        }
+
         // tape measure controls
         if (gamepad1.start && !gamepad1.back)
         {
-            if ((tapeMotor.getCurrentPosition() < (tapeMotorZero + tapeLimit)) && (tapeMotor.getCurrentPosition() >= tapeMotorZero))
+            if ((tapeMotor.getCurrentPosition() < (tapeMotorZero + tapeLimit)) && (tapeMotor.getCurrentPosition() >= tapeMotorZero) || tapeDebug)
             {
                 tapeMotor.setPower(0.5);
             }
@@ -322,7 +338,7 @@ public class yeet extends OpMode
         }
         if (gamepad1.back && !gamepad1.start)
         {
-            if (tapeMotor.getCurrentPosition() >= tapeMotorZero)
+            if ((tapeMotor.getCurrentPosition() >= tapeMotorZero) || tapeDebug)
             {
                 tapeMotor.setPower(-0.5);
             }
