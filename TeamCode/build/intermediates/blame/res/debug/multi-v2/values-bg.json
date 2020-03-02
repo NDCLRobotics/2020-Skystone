@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Robotics1\\Desktop\\Skystone 2019-2020 Code\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg\\values-bg.xml",
+            "outputFile": "C:\\Users\\Robotics\\Desktop\\Skystone 2019-2020 Code\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg\\values-bg.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Robotics1\\.gradle\\caches\\transforms-2\\files-2.1\\167fd27b330b4c26695267a2dc012bf7\\res\\values-bg\\values-bg.xml",
+                    "source": "C:\\Users\\Robotics\\.gradle\\caches\\transforms-2\\files-2.1\\521225c9401aa150bdd9d1a405b51605\\res\\values-bg\\values-bg.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

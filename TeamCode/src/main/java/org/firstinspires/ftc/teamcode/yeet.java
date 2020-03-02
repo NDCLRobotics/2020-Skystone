@@ -130,7 +130,7 @@ public class yeet extends OpMode
         //clawServoPower = clawServo.getPower();
 
 
-        telemetry.addData("say: ", "Working, latest updated: 02/26/20 4:20 PM");
+        telemetry.addData("say: ", "Working, latest updated: 03/02/20 3:29 PM");
     }
 
     @Override
@@ -148,7 +148,7 @@ public class yeet extends OpMode
         double panPower = powerScale + 0.2;
 
         // messages displayed on the phone while running
-        telemetry.addData("say:", "Working. Last Updated: 02/26/20 4:20 PM");
+        telemetry.addData("say:", "Working. Last Updated: 03/02/20 3:29 PM");
         telemetry.addData("say:", "Power Scale equals: " + powerScale);
         telemetry.addData("say:", "Servo Power equals: " + clawServo.getPower());
         telemetry.addData("say:", "Current Claw Position: " + clawMotor.getCurrentPosition());

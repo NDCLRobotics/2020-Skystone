@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Robotics1\\Desktop\\Skystone 2019-2020 Code\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
+            "outputFile": "C:\\Users\\Robotics\\Desktop\\Skystone 2019-2020 Code\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Robotics1\\.gradle\\caches\\transforms-2\\files-2.1\\167fd27b330b4c26695267a2dc012bf7\\res\\values-ro\\values-ro.xml",
+                    "source": "C:\\Users\\Robotics\\.gradle\\caches\\transforms-2\\files-2.1\\521225c9401aa150bdd9d1a405b51605\\res\\values-ro\\values-ro.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
