@@ -30,9 +30,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -44,9 +42,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.Came
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.util.Range;
 
 /*
  * --Spooktober 29, 2019
@@ -104,18 +100,6 @@ public class VLAutoBlueFoundation extends LinearOpMode {
 
 
     private long loopCount = 0;
-    private long initTime;
-    private long finalTime;
-
-
-    public double driveDist;
-    public double inPerLoop = 0.19;
-
-    public boolean spotted = false;
-    public boolean grabbing = false;
-    public boolean grabbed = false;
-
-    public int tightening = 0;
 
 
     //control hub 1
@@ -126,11 +110,9 @@ public class VLAutoBlueFoundation extends LinearOpMode {
 
     //control hub 2
     private DcMotor clawMotor = null;
-    public CRServo clawServo;
+    private CRServo clawServo;
 
-    //claw limits
-    int clawLimit = 300;
-    int clawMotorZero;
+    private int clawMotorZero;
 
 
 
@@ -169,6 +151,7 @@ public class VLAutoBlueFoundation extends LinearOpMode {
         backLeftMotor.setPower(distance);
         backRightMotor.setPower(distance);*/
 
+        double inPerLoop = 0.19;
         if (distance == 0)
         {
             frontLeftMotor.setPower(0.0);
@@ -255,7 +238,7 @@ public class VLAutoBlueFoundation extends LinearOpMode {
         }
     }
 
-    public void claw (String clamp)
+    private void claw(String clamp)
     {
         if(clamp.equals(C_GRAB))
         {
@@ -271,6 +254,8 @@ public class VLAutoBlueFoundation extends LinearOpMode {
         }
         if(clamp.equals(C_RAISE))
         {
+            //claw limits
+            int clawLimit = 300;
             if (clawMotor.getCurrentPosition() < clawMotorZero + clawLimit)
             {
                 clawMotor.setPower(0.5);
@@ -317,13 +302,13 @@ public class VLAutoBlueFoundation extends LinearOpMode {
             "AX54Lyj/////AAABmSsIALipi0y4oiZBAoZS4o4Jppp+qbLTWgVQVVuyveVi7sLhVC8XAwvTGDzKpxm1tiMRMLgYEV3Y5YXvqKMiA7R7TUZQcZeyL9MMGoqcq7rIeFMX01KOuZUmfs754hgbnsINn38JjhLLAH3g2GuKF9QZBF/CJqw/UFKKzR8bDlv4TkkTP8AyxvF9Vyv9G9gQhK2HoOWuSCWQHzIWl+op5LEPLXU7RmdrWzxDm1zEY3DZoax5pYLMRR349NoNzpUFBzwNu+nmEzT3eXQqtppz/vE/gHA0LRys9MAktPmeXQfvaS2YUi4UdE4PcFxfCUPuWe6L9xOQmUBE7hB39jTRkYxGADmTxILyBZB6fD3qyFHv";
 
     /**
-     * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
+     * {#vuforia} is the variable we will use to store our instance of the Vuforia
      * localization engine.
      */
     private VuforiaLocalizer vuforia;
 
     /**
-     * {@link #tfod} is the variable we will use to store our instance of the TensorFlow Object
+     * {#tfod} is the variable we will use to store our instance of the TensorFlow Object
      * Detection engine.
      */
     private TFObjectDetector tfod;
@@ -366,22 +351,17 @@ public class VLAutoBlueFoundation extends LinearOpMode {
             telemetry.addData("Sorry!", "This device is not compatible with TFOD");
         }
 
-        /**
-         * Activate TensorFlow Object Detection before we wait for the start command.
-         * Do it here so that the Camera Stream window will have the TensorFlow annotations visible.
-         **/
         if (tfod != null) {
             tfod.activate();
         }
 
-        /** Wait for the game to begin */
         telemetry.update();
         waitForStart();
 
         double middle_x, middle_y;
 
         if (opModeIsActive()) {
-            initTime = System.currentTimeMillis();
+            long initTime = System.currentTimeMillis();
             while (opModeIsActive()) {
                 if (tfod != null) {
                     // getUpdatedRecognitions() will return null if no new information is available since
@@ -412,7 +392,7 @@ public class VLAutoBlueFoundation extends LinearOpMode {
 
                         // to do: use coordinates to fine-tune movement and attempt block pickup
 
-                        finalTime = System.currentTimeMillis() - initTime;
+                        long finalTime = System.currentTimeMillis() - initTime;
 
                         telemetry.addData("Loop count:", +loopCount);
                         telemetry.addData("Time is:", finalTime);
