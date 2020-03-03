@@ -416,8 +416,8 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
 
                         telemetry.addData("say:", "Middle X is:" + middle_x);
                         telemetry.addData("say:", "Middle Y is:" + middle_y);
-                        telemetry.addData(">", "Version ID: 20200303-4");
-                        telemetry.addData(">", "Latest Commit: 2020-03-03 16:36");
+                        telemetry.addData(">", "Version ID: 20200303-5");
+                        telemetry.addData(">", "Latest Commit: 2020-03-03 16:42");
 
                         // driving forward into position
                         if ((finalTime > 0 && finalTime < 1500) && !intoPosition) {
@@ -436,7 +436,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         }
 
                         // detecting skystone
-                        if (labels.contains("Skystone") && labels.size() == 1) {
+                        if (labels.contains("Skystone")) {
                             targetSighted = true;
                         }
 
