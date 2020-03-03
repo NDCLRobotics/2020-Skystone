@@ -106,8 +106,6 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     private long loopCount;
     private long initTime;
     private long finalTime;
-    private long startTime;
-    private long beginTime;
 
 
     public double driveDist;
@@ -386,7 +384,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
         double middle_x, middle_y;
 
         if (opModeIsActive()) {
-            long startTime = System.currentTimeMillis();
+            long initTime = System.currentTimeMillis();
             intoPosition = false;
             while (opModeIsActive()) {
                 if (tfod != null) {
@@ -412,7 +410,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                       // cheap way to get it to drive forward a bit at the start
                       if (!intoPosition)
                       {
-                          long beginTime = System.currentTimeMillis() - startTime;
+                          long finalTime = System.currentTimeMillis() - initTime;
                       }
 
                       middle_x = 400;
@@ -424,18 +422,18 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                       telemetry.addData(">", "Latest Commit: 2020-03-03 16:00");
 
                     // driving forward into position
-                    if (beginTime > 0 && beginTime < 500)
+                    if (finalTime > 0 && finalTime < 1500)
                     {
                         drive(D_FORWARD);
                     }
-                    if (beginTime > 500)
+                    if (finalTime > 1500)
                     {
                         drive(D_STOP);
                         intoPosition = true;
                     }
 
                     // stone detecting code
-                    if (labels.contains("Skystone") && labels.size() == 1)
+                    if ((labels.contains("Skystone") && labels.size() == 1) && intoPosition)
                     {
                         middle_x = (updatedRecognitions.get(0).getRight() + updatedRecognitions.get(0).getLeft()) / 2.0;
                         middle_y = (updatedRecognitions.get(0).getBottom() + updatedRecognitions.get(0).getTop()) / 2.0;
