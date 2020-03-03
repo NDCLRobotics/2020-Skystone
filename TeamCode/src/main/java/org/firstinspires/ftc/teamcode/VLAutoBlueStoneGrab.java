@@ -476,36 +476,32 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                     }
 
                     // moving the skystone under the bridge and then parking under the bridge
-                    if (finalTime > 0 && finalTime < 3000)
-                    {
-                        drive(D_BACKWARD);
-                    }
-                    if (finalTime > 3000 && finalTime < 6000)
-                    {
-                        drive(D_STOP);
-                        pan(P_LEFT);
-                    }
-                    if (finalTime > 6000 && finalTime < 9000)
-                    {
-                        pan(P_STOP);
-                        drive(D_FORWARD);
-                        claw(C_OPEN);
-                    }
-                    if (finalTime > 9000 && finalTime < 12000)
-                    {
-                        drive(D_BACKWARD);
-                    }
-                    if (finalTime > 12000 && finalTime < 15000)
-                    {
-                        drive(D_STOP);
-                        pan(P_RIGHT);
-                    }
-                    if (finalTime > 15000)
-                    {
-                        drive(D_STOP);
-                        pan(P_STOP);
-                        claw(C_REST);
-                    }
+                 if (clockStarted) {
+                     if (finalTime > 0 && finalTime < 3000) {
+                         drive(D_BACKWARD);
+                     }
+                     if (finalTime > 3000 && finalTime < 6000) {
+                         drive(D_STOP);
+                         pan(P_LEFT);
+                     }
+                     if (finalTime > 6000 && finalTime < 9000) {
+                         pan(P_STOP);
+                         drive(D_FORWARD);
+                         claw(C_OPEN);
+                     }
+                     if (finalTime > 9000 && finalTime < 12000) {
+                         drive(D_BACKWARD);
+                     }
+                     if (finalTime > 12000 && finalTime < 15000) {
+                         drive(D_STOP);
+                         pan(P_RIGHT);
+                     }
+                     if (finalTime > 15000) {
+                         drive(D_STOP);
+                         pan(P_STOP);
+                         claw(C_REST);
+                     }
+                 }
                 }
             }
         }
