@@ -409,7 +409,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                       // cheap way to get it to drive forward a bit at the start
                       if (!intoPosition)
                       {
-                          long finalTime = System.currentTimeMillis() - initTime;
+                          finalTime = System.currentTimeMillis() - initTime;
                       }
 
                       middle_x = 400;
@@ -418,7 +418,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                       telemetry.addData("say:", "Middle X is:" + middle_x);
                       telemetry.addData("say:", "Middle Y is:" + middle_y);
                       telemetry.addData(">", "Version ID: 20200303-3");
-                      telemetry.addData(">", "Latest Commit: 2020-03-03 16:16");
+                      telemetry.addData(">", "Latest Commit: 2020-03-03 16:22");
 
                     // driving forward into position
                     if ((finalTime > 0 && finalTime < 1500) && !intoPosition)
