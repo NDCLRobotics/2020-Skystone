@@ -114,9 +114,9 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     public boolean spotted = false;
     public boolean grabbing = false;
     public boolean grabbed = false;
-    private boolean targetSighted = false;
-    private boolean clockStarted = false;
-    private boolean intoPosition = false;
+    public boolean targetSighted = false;
+    public boolean clockStarted = false;
+    public boolean intoPosition = false;
 
     public int tightening = 0;
 
@@ -384,8 +384,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
         double middle_x, middle_y;
 
         if (opModeIsActive()) {
-            long initTime = System.currentTimeMillis();
-            intoPosition = false;
+            initTime = System.currentTimeMillis();
             while (opModeIsActive()) {
                 if (tfod != null) {
                     // getUpdatedRecognitions() will return null if no new information is available since
@@ -418,15 +417,15 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
 
                       telemetry.addData("say:", "Middle X is:" + middle_x);
                       telemetry.addData("say:", "Middle Y is:" + middle_y);
-                      telemetry.addData(">", "Version ID: 20200301-2");
-                      telemetry.addData(">", "Latest Commit: 2020-03-03 16:00");
+                      telemetry.addData(">", "Version ID: 20200303-3");
+                      telemetry.addData(">", "Latest Commit: 2020-03-03 16:16");
 
                     // driving forward into position
-                    if (finalTime > 0 && finalTime < 1500)
+                    if ((finalTime > 0 && finalTime < 1500) && !intoPosition)
                     {
                         drive(D_FORWARD);
                     }
-                    if (finalTime > 1500)
+                    if (finalTime > 1500 && !intoPosition)
                     {
                         drive(D_STOP);
                         intoPosition = true;
@@ -448,7 +447,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                     }
 
                     // panning right until skystone
-                    if (!targetSighted)
+                    if (!targetSighted && intoPosition)
                     {
                         pan(P_RIGHT);
                         claw(C_OPEN);
