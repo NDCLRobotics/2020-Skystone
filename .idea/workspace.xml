@@ -424,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583270546154</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Blue skystone grab tweaks #6&#10;Fix my oopsie (again)">
+      <created>1583270968779</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1583270968779</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -461,7 +468,8 @@
     <MESSAGE value="Blue skystone grab tweaks&#10;oops" />
     <MESSAGE value="Blue skystone grab tweaks&#10;More tests to try to get it to work" />
     <MESSAGE value="Blue skystone grab tweaks #5&#10;More and more tests to try to get it to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Blue skystone grab tweaks #5&#10;More and more tests to try to get it to work" />
+    <MESSAGE value="Blue skystone grab tweaks #6&#10;Fix my oopsie (again)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Blue skystone grab tweaks #6&#10;Fix my oopsie (again)" />
   </component>
   <component name="masterDetails">
     <states>

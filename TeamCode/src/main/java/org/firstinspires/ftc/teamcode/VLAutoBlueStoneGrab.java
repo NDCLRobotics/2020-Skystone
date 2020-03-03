@@ -237,10 +237,10 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     {
         if(lr.equals(P_RIGHT))
         {
-            frontLeftMotor.setPower(-0.3);
-            frontRightMotor.setPower(0.3);
-            backLeftMotor.setPower(-0.3);
-            backRightMotor.setPower(0.3);
+            frontLeftMotor.setPower(-0.1);
+            frontRightMotor.setPower(0.1);
+            backLeftMotor.setPower(-0.1);
+            backRightMotor.setPower(0.1);
         }
         if(lr.equals(P_LEFT))
         {
@@ -392,116 +392,101 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                     List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
                     List<String> labels = new ArrayList<String>();
                     if (updatedRecognitions != null) {
-                      telemetry.addData("# Object Detected", updatedRecognitions.size());
+                        telemetry.addData("# Object Detected", updatedRecognitions.size());
 
-                      // step through the list of recognitions and display boundary info.
-                      int i = 0;
-                      for (Recognition recognition : updatedRecognitions) {
-                        telemetry.addData(String.format("label (%d)", i), recognition.getLabel());
-                        telemetry.addData(String.format("  left,top (%d)", i), "%.03f , %.03f",
-                                          recognition.getLeft(), recognition.getTop());
-                        telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
-                                recognition.getRight(), recognition.getBottom());
-                        labels.add(recognition.getLabel());
-                      }
-                      telemetry.update();
+                        // step through the list of recognitions and display boundary info.
+                        int i = 0;
+                        for (Recognition recognition : updatedRecognitions) {
+                            telemetry.addData(String.format("label (%d)", i), recognition.getLabel());
+                            telemetry.addData(String.format("  left,top (%d)", i), "%.03f , %.03f",
+                                    recognition.getLeft(), recognition.getTop());
+                            telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
+                                    recognition.getRight(), recognition.getBottom());
+                            labels.add(recognition.getLabel());
+                        }
+                        telemetry.update();
 
-                      // cheap way to get it to drive forward a bit at the start
-                      if (!intoPosition)
-                      {
-                          finalTime = System.currentTimeMillis() - initTime;
-                      }
+                        // cheap way to get it to drive forward a bit at the start
+                        if (!intoPosition) {
+                            finalTime = System.currentTimeMillis() - initTime;
+                        }
 
-                      middle_x = 400;
-                      middle_y = 600;
+                        middle_x = 400;
+                        middle_y = 600;
 
-                      telemetry.addData("say:", "Middle X is:" + middle_x);
-                      telemetry.addData("say:", "Middle Y is:" + middle_y);
-                      telemetry.addData(">", "Version ID: 20200303-3");
-                      telemetry.addData(">", "Latest Commit: 2020-03-03 16:22");
+                        telemetry.addData("say:", "Middle X is:" + middle_x);
+                        telemetry.addData("say:", "Middle Y is:" + middle_y);
+                        telemetry.addData(">", "Version ID: 20200303-4");
+                        telemetry.addData(">", "Latest Commit: 2020-03-03 16:36");
 
-                    // driving forward into position
-                    if ((finalTime > 0 && finalTime < 1500) && !intoPosition)
-                    {
-                        drive(D_FORWARD);
+                        // driving forward into position
+                        if ((finalTime > 0 && finalTime < 1500) && !intoPosition) {
+                            drive(D_FORWARD);
+                        }
+                        if (finalTime > 1500 && !intoPosition) {
+                            drive(D_STOP);
+                            intoPosition = true;
+                        }
+
+                        // panning right until skystone
+                        if (!targetSighted && intoPosition) {
+                            pan(P_RIGHT);
+                            claw(C_OPEN);
+                            claw(C_LOWER);
+                        }
+
+                        // detecting skystone
+                        if (labels.contains("Skystone") && labels.size() == 1) {
+                            targetSighted = true;
+                        }
+
+                        // skystone detected and not grabbed
+                        if (targetSighted && (labels.size() == 1)) {
+                            claw(C_REST);
+                            pan(P_STOP);
+                            drive(D_FORWARD);
+                        }
+
+                        // clock starter
+                        if (targetSighted && (labels.size() == 0) && !clockStarted) {
+                            initTime = System.currentTimeMillis();
+                            clockStarted = true;
+                            targetSighted = false;
+                        }
+
+                        // clock keeper
+                        if (clockStarted) {
+                            long finalTime = System.currentTimeMillis() - initTime;
+                        }
+
+                        // moving the skystone under the bridge and then parking under the bridge
+                        if (clockStarted) {
+                            if (finalTime > 0 && finalTime < 3000) {
+                                drive(D_BACKWARD);
+                            }
+                            if (finalTime > 3000 && finalTime < 6000) {
+                                drive(D_STOP);
+                                pan(P_LEFT);
+                            }
+                            if (finalTime > 6000 && finalTime < 9000) {
+                                pan(P_STOP);
+                                drive(D_FORWARD);
+                                claw(C_OPEN);
+                            }
+                            if (finalTime > 9000 && finalTime < 12000) {
+                                drive(D_BACKWARD);
+                            }
+                            if (finalTime > 12000 && finalTime < 15000) {
+                                drive(D_STOP);
+                                pan(P_RIGHT);
+                            }
+                            if (finalTime > 15000) {
+                                drive(D_STOP);
+                                pan(P_STOP);
+                                claw(C_REST);
+                            }
+                        }
                     }
-                    if (finalTime > 1500 && !intoPosition)
-                    {
-                        drive(D_STOP);
-                        intoPosition = true;
-                    }
-
-                    // stone detecting code
-                    if ((labels.contains("Skystone") && labels.size() == 1) && intoPosition)
-                    {
-                        middle_x = (updatedRecognitions.get(0).getRight() + updatedRecognitions.get(0).getLeft()) / 2.0;
-                        middle_y = (updatedRecognitions.get(0).getBottom() + updatedRecognitions.get(0).getTop()) / 2.0;
-
-                        targetSighted = true;
-
-                        /*if (updatedRecognitions.get(0).getTop() < 640) { drive(D_FORWARD); }
-                        if (updatedRecognitions.get(0).getTop() > 660) { drive(D_BACKWARD); }
-                        if (updatedRecognitions.get(0).getLeft() < 350) { pan(P_RIGHT); }
-                        if (updatedRecognitions.get(0).getLeft() > 370) { pan(P_LEFT); }*/
-                    }
-                    }
-
-                    // panning right until skystone
-                    if (!targetSighted && intoPosition)
-                    {
-                        pan(P_RIGHT);
-                        claw(C_OPEN);
-                        claw(C_LOWER);
-                    }
-
-                    // skystone detected and not grabbed
-                    if (targetSighted && (labels.size() == 1))
-                    {
-                        claw(C_REST);
-                        pan(P_STOP);
-                        drive(D_FORWARD);
-                    }
-
-                    // clock starter
-                    if (targetSighted && (labels.size() == 0) && !clockStarted)
-                    {
-                        initTime = System.currentTimeMillis();
-                        clockStarted = true;
-                    }
-
-                    // clock keeper
-                    if (clockStarted)
-                    {
-                        long finalTime = System.currentTimeMillis() - initTime;
-                    }
-
-                    // moving the skystone under the bridge and then parking under the bridge
-                 if (clockStarted) {
-                     if (finalTime > 0 && finalTime < 3000) {
-                         drive(D_BACKWARD);
-                     }
-                     if (finalTime > 3000 && finalTime < 6000) {
-                         drive(D_STOP);
-                         pan(P_LEFT);
-                     }
-                     if (finalTime > 6000 && finalTime < 9000) {
-                         pan(P_STOP);
-                         drive(D_FORWARD);
-                         claw(C_OPEN);
-                     }
-                     if (finalTime > 9000 && finalTime < 12000) {
-                         drive(D_BACKWARD);
-                     }
-                     if (finalTime > 12000 && finalTime < 15000) {
-                         drive(D_STOP);
-                         pan(P_RIGHT);
-                     }
-                     if (finalTime > 15000) {
-                         drive(D_STOP);
-                         pan(P_STOP);
-                         claw(C_REST);
-                     }
-                 }
                 }
             }
         }
