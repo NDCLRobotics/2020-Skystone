@@ -237,10 +237,10 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     {
         if(lr.equals(P_RIGHT))
         {
-            frontLeftMotor.setPower(-0.1);
-            frontRightMotor.setPower(0.1);
-            backLeftMotor.setPower(-0.1);
-            backRightMotor.setPower(0.1);
+            frontLeftMotor.setPower(-0.2);
+            frontRightMotor.setPower(0.2);
+            backLeftMotor.setPower(-0.2);
+            backRightMotor.setPower(0.2);
         }
         if(lr.equals(P_LEFT))
         {
