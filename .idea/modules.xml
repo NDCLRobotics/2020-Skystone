@@ -4,8 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" filepath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" group="Skystone 2019-2020 Code/FtcRobotController" />
       <module fileurl="file://$PROJECT_DIR$/Skystone 2019-2020 Code.iml" filepath="$PROJECT_DIR$/Skystone 2019-2020 Code.iml" group="Skystone 2019-2020 Code" />
-      <module fileurl="file://$PROJECT_DIR$/TeamCode/Skystone 2019-2020 Code-TeamCode.iml" filepath="$PROJECT_DIR$/TeamCode/Skystone 2019-2020 Code-TeamCode.iml" group="Skystone 2019-2020 Code/TeamCode" />
-      <module fileurl="file://$PROJECT_DIR$/TeamCode/TeamCode.iml" filepath="$PROJECT_DIR$/TeamCode/TeamCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeamCode/TeamCode.iml" filepath="$PROJECT_DIR$/TeamCode/TeamCode.iml" group="Skystone 2019-2020 Code/TeamCode" />
     </modules>
   </component>
 </project>
