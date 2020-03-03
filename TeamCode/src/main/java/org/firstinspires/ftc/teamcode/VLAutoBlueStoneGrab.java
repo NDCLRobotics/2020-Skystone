@@ -466,7 +466,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                     // clock starter
                     if (targetSighted && (labels.size() == 0) && !clockStarted)
                     {
-                        long initTime = System.currentTimeMillis();
+                        initTime = System.currentTimeMillis();
                         clockStarted = true;
                     }
 
