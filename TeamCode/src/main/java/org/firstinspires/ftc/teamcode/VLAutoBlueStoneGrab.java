@@ -83,7 +83,7 @@ import com.qualcomm.robotcore.util.Range;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@Autonomous(name = "VLAuto Blue Foundation Grab", group = "Concept")
+@Autonomous(name = "VLAuto: Blue Skystone Grab", group = "Concept")
 //@Disabled
 public class VLAutoBlueStoneGrab extends LinearOpMode {
     private static final String D_FORWARD = "forward";
@@ -106,6 +106,8 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     private long loopCount;
     private long initTime;
     private long finalTime;
+    private long startTime;
+    private long beginTime;
 
 
     public double driveDist;
@@ -116,6 +118,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     public boolean grabbed = false;
     private boolean targetSighted = false;
     private boolean clockStarted = false;
+    private boolean intoPosition = false;
 
     public int tightening = 0;
 
@@ -383,6 +386,8 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
         double middle_x, middle_y;
 
         if (opModeIsActive()) {
+            long startTime = System.currentTimeMillis();
+            intoPosition = false;
             while (opModeIsActive()) {
                 if (tfod != null) {
                     // getUpdatedRecognitions() will return null if no new information is available since
@@ -404,15 +409,30 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                       }
                       telemetry.update();
 
-
+                      // cheap way to get it to drive forward a bit at the start
+                      if (!intoPosition)
+                      {
+                          long beginTime = System.currentTimeMillis() - startTime;
+                      }
 
                       middle_x = 400;
                       middle_y = 600;
 
                       telemetry.addData("say:", "Middle X is:" + middle_x);
                       telemetry.addData("say:", "Middle Y is:" + middle_y);
-                      telemetry.addData(">", "Version ID: 20200301-1");
-                      telemetry.addData(">", "Latest Commit: 2020-03-03 15:45");
+                      telemetry.addData(">", "Version ID: 20200301-2");
+                      telemetry.addData(">", "Latest Commit: 2020-03-03 16:00");
+
+                    // driving forward into position
+                    if (beginTime > 0 && beginTime < 500)
+                    {
+                        drive(D_FORWARD);
+                    }
+                    if (beginTime > 500)
+                    {
+                        drive(D_STOP);
+                        intoPosition = true;
+                    }
 
                     // stone detecting code
                     if (labels.contains("Skystone") && labels.size() == 1)
