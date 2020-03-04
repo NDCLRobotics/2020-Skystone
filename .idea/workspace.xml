@@ -19,6 +19,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d40d7ca5-3463-4330-94a7-b9940c3e4f67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/VLAutoBlueStoneGrab.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/VLAutoBlueStoneGrab.java" afterDir="false" />
@@ -473,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583357004070</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Day 2 of Blue Stone Grab #7">
+      <created>1583357893287</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1583357893287</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -491,7 +499,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add reference on the phone to see if tape debug mode is on or off" />
     <MESSAGE value="Make the blue foundation autonomous more consistent as a test&#10;Remove a ) in the phone display" />
     <MESSAGE value="Moar Autonomous Fixes&#10;Reduce time for autonomous by 0.5 for all functions after reversing&#10;Timestamp consistencies for TeleOp" />
     <MESSAGE value="Moar Autonomous Fixes Numba 2&#10;Reduce time for autonomous by 0.5 for the final command" />
@@ -516,7 +523,8 @@
     <MESSAGE value="Day 2 of Blue Skystone Grab #5&#10;Make it go for both stones and skystone for peace of mind" />
     <MESSAGE value="Day 2 of Blue Skystone Grab #5&#10;oops" />
     <MESSAGE value="Day 2 of Blue Stone Grab #6&#10;Change skystone stuff to stone stuff&#10;More booleans &amp; longs because YAY" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Stone Grab #6&#10;Change skystone stuff to stone stuff&#10;More booleans &amp; longs because YAY" />
+    <MESSAGE value="Day 2 of Blue Stone Grab #7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Stone Grab #7" />
   </component>
   <component name="masterDetails">
     <states>

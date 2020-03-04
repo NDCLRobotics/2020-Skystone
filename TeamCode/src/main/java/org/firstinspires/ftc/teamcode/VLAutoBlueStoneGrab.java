@@ -125,6 +125,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     public boolean resetClock = false;
     public boolean setTime2 = false;
     public boolean timeIsSet2 = false;
+    public boolean foundStone = false;
 
     public int tightening = 0;
 
@@ -444,10 +445,11 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         }
 
                         // detecting skystone
-                        if (labels.contains("Skystone") || labels.contains("Stone")/* && (middle_x > 430) && (middle_y > 730)*/) {
+                        if ((labels.contains("Skystone") || labels.contains("Stone")) && !foundStone) {
                             targetSighted = true;
                             pan(P_STOP);
                             setTime2 = true;
+                            foundStone = true;
                         }
 
                         if (setTime2)
@@ -463,16 +465,19 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                             if (finalTime2 > 0 && finalTime2 < 500)
                             {
                                 pan(P_RIGHT);
+                                telemetry.addData("say:", "DEBUG TEXT A");
                             }
                             if (finalTime2 > 500 && finalTime2 < 2000)
                             {
                                 pan(P_STOP);
                                 drive(D_FORWARD);
+                                telemetry.addData("say:", "DEBUG TEXT B");
                             }
                             if (finalTime2 > 2000)
                             {
                                 targetSighted = false;
                                 resetClock = true;
+                                telemetry.addData("say:", "DEBUG TEXT C");
                             }
                         }
 
