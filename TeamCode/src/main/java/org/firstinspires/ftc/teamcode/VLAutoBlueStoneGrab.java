@@ -442,7 +442,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         }
 
                         // detecting skystone
-                        if (labels.contains("Skystone") &| labels.contains("Stone")/* && (middle_x > 430) && (middle_y > 730)*/) {
+                        if (labels.contains("Skystone") || labels.contains("Stone")/* && (middle_x > 430) && (middle_y > 730)*/) {
                             targetSighted = true;
                         }
 
