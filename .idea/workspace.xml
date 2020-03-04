@@ -459,7 +459,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583353190824</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Day 2 of Blue Skystone Grab #2&#10;Adjust the drive forward length">
+      <created>1583353871206</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1583353871206</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Day 2 of Blue Skystone Grab #3&#10;Adjust the drive forward length again">
+      <created>1583354058333</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1583354058333</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -477,7 +491,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add tape measure reverse" />
     <MESSAGE value="Fix (accidentally) deleted files" />
     <MESSAGE value="Test Git on new laptop." />
     <MESSAGE value="Clean up code, add more comments, make comments consistent." />
@@ -501,7 +514,9 @@
     <MESSAGE value="Blue skystone grab tweaks #8&#10;Make it slightly faster to try to prevent a stall" />
     <MESSAGE value="Blue skystone grab tweaks #9&#10;Fix something again due to my stupidity" />
     <MESSAGE value="Day 2 of Blue Skystone Grab&#10;Pan left a bit to reposition to grab the stone based on our phone position (sad)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Skystone Grab&#10;Pan left a bit to reposition to grab the stone based on our phone position (sad)" />
+    <MESSAGE value="Day 2 of Blue Skystone Grab #2&#10;Adjust the drive forward length" />
+    <MESSAGE value="Day 2 of Blue Skystone Grab #3&#10;Adjust the drive forward length again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Skystone Grab #3&#10;Adjust the drive forward length again" />
   </component>
   <component name="masterDetails">
     <states>

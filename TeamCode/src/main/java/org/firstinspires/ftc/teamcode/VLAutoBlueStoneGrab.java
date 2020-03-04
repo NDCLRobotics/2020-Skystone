@@ -409,12 +409,12 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         telemetry.update();
 
                         // cheap way to get it to drive forward a bit at the start
-                        if (!intoPosition) {
+                        if (!intoPosition && !clockStarted) {
                             finalTime = System.currentTimeMillis() - initTime;
                         }
 
-                        middle_x = 400;
-                        middle_y = 600;
+                        middle_x = 300;
+                        middle_y = 300;
 
                         telemetry.addData("say:", "Middle X is:" + middle_x);
                         telemetry.addData("say:", "Middle Y is:" + middle_y);
@@ -438,7 +438,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         }
 
                         // detecting skystone
-                        if (labels.contains("Skystone")) {
+                        if (labels.contains("Skystone") && (middle_x > 430) && (middle_y > 730)) {
                             targetSighted = true;
                         }
 
@@ -477,7 +477,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         }
 
                         // clock keeper
-                        if (clockStarted) {
+                        if (clockStarted && !intoPosition) {
                             finalTime = System.currentTimeMillis() - initTime;
                         }
 
