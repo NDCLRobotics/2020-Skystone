@@ -117,6 +117,8 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     public boolean targetSighted = false;
     public boolean clockStarted = false;
     public boolean intoPosition = false;
+    public boolean panningLeft = false;
+    public boolean resetClock = false;
 
     public int tightening = 0;
 
@@ -237,10 +239,10 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     {
         if(lr.equals(P_RIGHT))
         {
-            frontLeftMotor.setPower(-0.2);
-            frontRightMotor.setPower(0.2);
-            backLeftMotor.setPower(-0.2);
-            backRightMotor.setPower(0.2);
+            frontLeftMotor.setPower(-0.25);
+            frontRightMotor.setPower(0.25);
+            backLeftMotor.setPower(-0.25);
+            backRightMotor.setPower(0.25);
         }
         if(lr.equals(P_LEFT))
         {
@@ -450,13 +452,33 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         // clock starter
                         if (targetSighted && (labels.size() == 0) && !clockStarted) {
                             initTime = System.currentTimeMillis();
-                            clockStarted = true;
+                            panningLeft = true;
                             targetSighted = false;
+                        }
+
+                        // pan left to reposition
+                        if (panningLeft && finalTime > 0 && finalTime < 500)
+                        {
+                            pan(P_LEFT);
+                        }
+                        if (panningLeft && finalTime > 500)
+                        {
+                            pan(P_STOP);
+                            resetClock = true;
+                            panningLeft = false;
+                        }
+
+                        // reset the clock again
+                        if (resetClock)
+                        {
+                            initTime = System.currentTimeMillis();
+                            clockStarted = true;
+                            resetClock = false;
                         }
 
                         // clock keeper
                         if (clockStarted) {
-                            long finalTime = System.currentTimeMillis() - initTime;
+                            finalTime = System.currentTimeMillis() - initTime;
                         }
 
                         // moving the skystone under the bridge and then parking under the bridge
