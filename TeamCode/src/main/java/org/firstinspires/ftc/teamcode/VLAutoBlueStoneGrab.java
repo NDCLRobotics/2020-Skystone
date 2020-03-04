@@ -106,6 +106,10 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     private long loopCount;
     private long initTime;
     private long finalTime;
+    private long initTime2;
+    private long finalTime2;
+    private long initTime3;
+    private long finalTime3;
 
 
     public double driveDist;
@@ -438,7 +442,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         }
 
                         // detecting skystone
-                        if (labels.contains("Skystone") && (middle_x > 430) && (middle_y > 730)) {
+                        if (labels.contains("Skystone")/* && (middle_x > 430) && (middle_y > 730)*/) {
                             targetSighted = true;
                         }
 
@@ -451,12 +455,16 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
 
                         // clock starter
                         if (targetSighted && (labels.size() == 0) && !clockStarted) {
-                            initTime = System.currentTimeMillis();
+                            initTime2 = System.currentTimeMillis();
                             panningLeft = true;
                             targetSighted = false;
                         }
 
                         // pan left to reposition
+                        if (panningLeft)
+                        {
+                            finalTime2 = System.currentTimeMillis() - initTime2;
+                        }
                         if (panningLeft && finalTime > 0 && finalTime < 500)
                         {
                             pan(P_LEFT);
@@ -471,38 +479,38 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         // reset the clock again
                         if (resetClock)
                         {
-                            initTime = System.currentTimeMillis();
+                            initTime3 = System.currentTimeMillis();
                             clockStarted = true;
                             resetClock = false;
                         }
 
                         // clock keeper
                         if (clockStarted && !intoPosition) {
-                            finalTime = System.currentTimeMillis() - initTime;
+                            finalTime3 = System.currentTimeMillis() - initTime3;
                         }
 
                         // moving the skystone under the bridge and then parking under the bridge
                         if (clockStarted) {
-                            if (finalTime > 0 && finalTime < 3000) {
+                            if (finalTime3 > 0 && finalTime3 < 3000) {
                                 drive(D_BACKWARD);
                             }
-                            if (finalTime > 3000 && finalTime < 6000) {
+                            if (finalTime3 > 3000 && finalTime3 < 6000) {
                                 drive(D_STOP);
                                 pan(P_LEFT);
                             }
-                            if (finalTime > 6000 && finalTime < 9000) {
+                            if (finalTime3 > 6000 && finalTime3 < 9000) {
                                 pan(P_STOP);
                                 drive(D_FORWARD);
                                 claw(C_OPEN);
                             }
-                            if (finalTime > 9000 && finalTime < 12000) {
+                            if (finalTime3 > 9000 && finalTime3 < 12000) {
                                 drive(D_BACKWARD);
                             }
-                            if (finalTime > 12000 && finalTime < 15000) {
+                            if (finalTime3 > 12000 && finalTime3 < 15000) {
                                 drive(D_STOP);
                                 pan(P_RIGHT);
                             }
-                            if (finalTime > 15000) {
+                            if (finalTime3 > 15000) {
                                 drive(D_STOP);
                                 pan(P_STOP);
                                 claw(C_REST);
