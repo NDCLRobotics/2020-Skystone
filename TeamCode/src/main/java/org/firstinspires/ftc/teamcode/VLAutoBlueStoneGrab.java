@@ -418,14 +418,14 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
 
                         telemetry.addData("say:", "Middle X is:" + middle_x);
                         telemetry.addData("say:", "Middle Y is:" + middle_y);
-                        telemetry.addData(">", "Version ID: 20200303-5");
-                        telemetry.addData(">", "Latest Commit: 2020-03-03 16:42");
+                        telemetry.addData(">", "Version ID: 20200304-1");
+                        telemetry.addData(">", "Latest Commit: 2020-03-04 15:30");
 
                         // driving forward into position
-                        if ((finalTime > 0 && finalTime < 1500) && !intoPosition) {
+                        if ((finalTime > 0 && finalTime < 1250) && !intoPosition) {
                             drive(D_FORWARD);
                         }
-                        if (finalTime > 1500 && !intoPosition) {
+                        if (finalTime > 1250 && !intoPosition) {
                             drive(D_STOP);
                             intoPosition = true;
                         }

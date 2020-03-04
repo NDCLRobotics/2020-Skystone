@@ -19,9 +19,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d40d7ca5-3463-4330-94a7-b9940c3e4f67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/TeamCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/TeamCode.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/VLAutoBlueStoneGrab.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/VLAutoBlueStoneGrab.java" afterDir="false" />
@@ -32,6 +29,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ZY2257TMP3" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -454,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583271778479</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Day 2 of Blue Skystone Grab&#10;Pan left a bit to reposition to grab the stone based on our phone position (sad)">
+      <created>1583353190824</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1583353190824</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -495,7 +500,8 @@
     <MESSAGE value="Blue skystone grab tweaks #7&#10;Slow down right pan&#10;Try to prevent the robot having a seizure every time we find a skystone" />
     <MESSAGE value="Blue skystone grab tweaks #8&#10;Make it slightly faster to try to prevent a stall" />
     <MESSAGE value="Blue skystone grab tweaks #9&#10;Fix something again due to my stupidity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Blue skystone grab tweaks #9&#10;Fix something again due to my stupidity" />
+    <MESSAGE value="Day 2 of Blue Skystone Grab&#10;Pan left a bit to reposition to grab the stone based on our phone position (sad)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Skystone Grab&#10;Pan left a bit to reposition to grab the stone based on our phone position (sad)" />
   </component>
   <component name="masterDetails">
     <states>
