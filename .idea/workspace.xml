@@ -19,7 +19,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d40d7ca5-3463-4330-94a7-b9940c3e4f67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/VLAutoBlueStoneGrab.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/VLAutoBlueStoneGrab.java" afterDir="false" />
@@ -481,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583355285087</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Day 2 of Blue Skystone Grab #5&#10;Seperate time longs">
+      <created>1583356294946</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1583356294946</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -499,7 +505,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Test Git on new laptop." />
     <MESSAGE value="Clean up code, add more comments, make comments consistent." />
     <MESSAGE value="Actually put a decent ReadMe relating to our code" />
     <MESSAGE value="Add a tape measure debug mode" />
@@ -524,7 +529,8 @@
     <MESSAGE value="Day 2 of Blue Skystone Grab #2&#10;Adjust the drive forward length" />
     <MESSAGE value="Day 2 of Blue Skystone Grab #3&#10;Adjust the drive forward length again" />
     <MESSAGE value="Day 2 of Blue Skystone Grab #4&#10;Implementing some old stuff thanks to the old code and THE SACRED TEXTS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Skystone Grab #4&#10;Implementing some old stuff thanks to the old code and THE SACRED TEXTS" />
+    <MESSAGE value="Day 2 of Blue Skystone Grab #5&#10;Seperate time longs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Skystone Grab #5&#10;Seperate time longs" />
   </component>
   <component name="masterDetails">
     <states>
