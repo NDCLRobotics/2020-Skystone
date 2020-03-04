@@ -123,7 +123,8 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     public boolean intoPosition = false;
     public boolean panningLeft = false;
     public boolean resetClock = false;
-    public boolean driveForward = false;
+    public boolean setTime2 = false;
+    public boolean timeIsSet2 = false;
 
     public int tightening = 0;
 
@@ -445,36 +446,34 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         // detecting skystone
                         if (labels.contains("Skystone") || labels.contains("Stone")/* && (middle_x > 430) && (middle_y > 730)*/) {
                             targetSighted = true;
+                            pan(P_STOP);
+                            setTime2 = true;
                         }
 
-                        // skystone detected and not grabbed
-                        if (targetSighted) {
+                        if (setTime2)
+                        {
                             initTime2 = System.currentTimeMillis();
-                            driveForward = true;
-                            targetSighted = false;
+                            timeIsSet2 = true;
+                            setTime2 = false;
                         }
 
-                        if (driveForward)
+                        if (timeIsSet2)
                         {
                             finalTime2 = System.currentTimeMillis() - initTime2;
-                            if (finalTime2 > 0 && finalTime < 500)
+                            if (finalTime2 > 0 && finalTime2 < 500)
                             {
                                 pan(P_RIGHT);
                             }
-                            if (finalTime2 > 500 && finalTime < 2000)
+                            if (finalTime2 > 500 && finalTime2 < 2000)
                             {
-                                claw(C_REST);
                                 pan(P_STOP);
                                 drive(D_FORWARD);
-                                resetClock = true;
-                                driveForward = false;
                             }
-                        }
-
-                        // clock starter
-                        if (targetSighted && (labels.size() == 0) && !clockStarted) {
-                            panningLeft = true;
-                            targetSighted = false;
+                            if (finalTime2 > 2000)
+                            {
+                                targetSighted = false;
+                                resetClock = true;
+                            }
                         }
 
                         // reset the clock again

@@ -49,41 +49,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>FORWARD</find>
-      <find>servo</find>
-      <find>clawMotor</find>
-      <find>clawServo.setPower</find>
-      <find>clawServoPower</find>
-      <find>gamepad1.b</find>
-      <find>powerS</find>
-      <find>working</find>
-      <find>telemetry</find>
-      <find>clawLimit</find>
-      <find>boolean switchin</find>
-      <find>initVur</find>
-      <find>loadmodel</find>
-      <find>skystone</find>
-      <find>init</find>
-      <find>C_WIDE</find>
-      <find>clawMotorZero</find>
-      <find>telemetry.add</find>
-      <find>+=</find>
-      <find>yeet</find>
-      <find>tight</find>
-      <find>clawlimit</find>
-      <find>loopCount</find>
-      <find>clawmotor</find>
-      <find>gamepad1.x</find>
-      <find>c_open</find>
-      <find>c_grB</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>REVERSE</replace>
-      <replace>C_OPEN</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -501,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583356617256</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Day 2 of Blue Stone Grab #6&#10;Change skystone stuff to stone stuff&#10;More booleans &amp; longs because YAY">
+      <created>1583357004070</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1583357004070</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -519,7 +491,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add a tape measure debug mode" />
     <MESSAGE value="Add reference on the phone to see if tape debug mode is on or off" />
     <MESSAGE value="Make the blue foundation autonomous more consistent as a test&#10;Remove a ) in the phone display" />
     <MESSAGE value="Moar Autonomous Fixes&#10;Reduce time for autonomous by 0.5 for all functions after reversing&#10;Timestamp consistencies for TeleOp" />
@@ -544,7 +515,8 @@
     <MESSAGE value="Day 2 of Blue Skystone Grab #5&#10;Seperate time longs" />
     <MESSAGE value="Day 2 of Blue Skystone Grab #5&#10;Make it go for both stones and skystone for peace of mind" />
     <MESSAGE value="Day 2 of Blue Skystone Grab #5&#10;oops" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Skystone Grab #5&#10;oops" />
+    <MESSAGE value="Day 2 of Blue Stone Grab #6&#10;Change skystone stuff to stone stuff&#10;More booleans &amp; longs because YAY" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Stone Grab #6&#10;Change skystone stuff to stone stuff&#10;More booleans &amp; longs because YAY" />
   </component>
   <component name="masterDetails">
     <states>
