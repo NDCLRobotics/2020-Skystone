@@ -83,7 +83,7 @@ import com.qualcomm.robotcore.util.Range;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@Autonomous(name = "VLAuto: Blue Skystone Grab", group = "Concept")
+@Autonomous(name = "VLAuto: Blue Stone Grab", group = "Concept")
 //@Disabled
 public class VLAutoBlueStoneGrab extends LinearOpMode {
     private static final String D_FORWARD = "forward";
@@ -123,6 +123,7 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
     public boolean intoPosition = false;
     public boolean panningLeft = false;
     public boolean resetClock = false;
+    public boolean driveForward = false;
 
     public int tightening = 0;
 
@@ -422,8 +423,8 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
 
                         telemetry.addData("say:", "Middle X is:" + middle_x);
                         telemetry.addData("say:", "Middle Y is:" + middle_y);
-                        telemetry.addData(">", "Version ID: 20200304-1");
-                        telemetry.addData(">", "Latest Commit: 2020-03-04 15:30");
+                        telemetry.addData(">", "Version ID: 20200304-2");
+                        telemetry.addData(">", "Latest Commit: 2020-03-04 16:22");
 
                         // driving forward into position
                         if ((finalTime > 0 && finalTime < 1000) && !intoPosition) {
@@ -447,33 +448,33 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         }
 
                         // skystone detected and not grabbed
-                        if (targetSighted && (labels.size() == 1)) {
-                            claw(C_REST);
-                            pan(P_STOP);
-                            drive(D_FORWARD);
+                        if (targetSighted) {
+                            initTime2 = System.currentTimeMillis();
+                            driveForward = true;
+                            targetSighted = false;
+                        }
+
+                        if (driveForward)
+                        {
+                            finalTime2 = System.currentTimeMillis() - initTime2;
+                            if (finalTime2 > 0 && finalTime < 500)
+                            {
+                                pan(P_RIGHT);
+                            }
+                            if (finalTime2 > 500 && finalTime < 2000)
+                            {
+                                claw(C_REST);
+                                pan(P_STOP);
+                                drive(D_FORWARD);
+                                resetClock = true;
+                                driveForward = false;
+                            }
                         }
 
                         // clock starter
                         if (targetSighted && (labels.size() == 0) && !clockStarted) {
-                            initTime2 = System.currentTimeMillis();
                             panningLeft = true;
                             targetSighted = false;
-                        }
-
-                        // pan left to reposition
-                        if (panningLeft)
-                        {
-                            finalTime2 = System.currentTimeMillis() - initTime2;
-                        }
-                        if (panningLeft && finalTime > 0 && finalTime < 500)
-                        {
-                            pan(P_LEFT);
-                        }
-                        if (panningLeft && finalTime > 500)
-                        {
-                            pan(P_STOP);
-                            resetClock = true;
-                            panningLeft = false;
                         }
 
                         // reset the clock again
