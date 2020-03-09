@@ -462,18 +462,18 @@ public class VLAutoBlueStoneGrab extends LinearOpMode {
                         if (timeIsSet2)
                         {
                             finalTime2 = System.currentTimeMillis() - initTime2;
-                            if (finalTime2 > 0 && finalTime2 < 500)
+                            if (finalTime2 >= 0 && finalTime2 <= 500)
                             {
                                 pan(P_RIGHT);
                                 telemetry.addData("say:", "DEBUG TEXT A");
                             }
-                            if (finalTime2 > 500 && finalTime2 < 2000)
+                            else if (finalTime2 > 500 && finalTime2 <= 2000)
                             {
                                 pan(P_STOP);
                                 drive(D_FORWARD);
                                 telemetry.addData("say:", "DEBUG TEXT B");
                             }
-                            if (finalTime2 > 2000)
+                            else if (finalTime2 > 2000)
                             {
                                 targetSighted = false;
                                 resetClock = true;
