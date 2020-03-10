@@ -417,47 +417,47 @@ public class VLAutoRedFoundation extends LinearOpMode {
                         telemetry.addData("Loop count:", +loopCount);
                         telemetry.addData("Time is:", finalTime);
                         telemetry.addData("Ms/loop", finalTime / loopCount);
-                        telemetry.addData(">", "Version ID: 20200302-1");
-                        telemetry.addData(">", "Latest Commit: 2020-03-02 16:42");
+                        telemetry.addData(">", "Version ID: 20200310-1");
+                        telemetry.addData(">", "Latest Commit: 2020-03-10 11:39");
                         /* if (autonomous == true)
                         {
                             do.autonomous;
                         }
                          */
-                        if (finalTime > 0 && finalTime < 3500) {
+                        if (finalTime >= 0 && finalTime <= 3500) {
                             pan(P_RIGHT);
                             claw(C_GRAB);
                         }
-                        if (finalTime > 3500 && finalTime < 6500) {
+                        else if (finalTime > 3500 && finalTime <= 6500) {
                             pan(P_STOP);
                             drive(D_FORWARD);
                             claw(C_RAISE);
                         }
-                        if (finalTime > 6500 && finalTime < 8500) {
+                        else if (finalTime > 6500 && finalTime <= 8500) {
                             drive(D_STOP);
                             claw(C_LOWER);
                         }
-                        if (finalTime > 8500 && finalTime < 12500) {
+                        else if (finalTime > 8500 && finalTime <= 12500) {
                             claw(C_REST);
                             drive(D_BACKWARD);
                         }
-                        if (finalTime > 12500 && finalTime < 14500) {
+                        else if (finalTime > 12500 && finalTime <= 14500) {
                             drive(D_STOP);
                             claw(C_RAISE);
                         }
-                        if (finalTime > 14500 && finalTime < 16500) {
+                        else if (finalTime > 14500 && finalTime <= 16500) {
                             claw(C_REST);
                             pan(P_LEFT);
                         }
-                        if (finalTime > 16500 && finalTime < 18500) {
+                        else if (finalTime > 16500 && finalTime <= 18500) {
                             claw(C_LOWER);
                         }
-                        if (finalTime > 18500 && finalTime < 19500) {
+                        else if (finalTime > 18500 && finalTime <= 19500) {
                             claw(C_REST);
                             pan(P_LEFT);
                         }
                         //temporary stop code
-                        if (finalTime > 19500)
+                        else if (finalTime > 19500)
                         {
                             drive(D_STOP);
                             pan(P_STOP);

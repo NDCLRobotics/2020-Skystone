@@ -18,7 +18,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d40d7ca5-3463-4330-94a7-b9940c3e4f67" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -483,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583359073280</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Make code look cleaner (thanks Kyle)&#10;Make long strings of &quot;if&quot; into &quot;else if&quot;&#10;Hopefully make a fix for the blue stone grab">
+      <created>1583780514504</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1583780514504</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -501,7 +511,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Moar Autonomous Fixes&#10;Reduce time for autonomous by 0.5 for all functions after reversing&#10;Timestamp consistencies for TeleOp" />
     <MESSAGE value="Moar Autonomous Fixes Numba 2&#10;Reduce time for autonomous by 0.5 for the final command" />
     <MESSAGE value="Moar Autonomous Fixes Numba Tree&#10;Implement time changes on blue side to red side" />
     <MESSAGE value="Code Cleaning&#10;Clean up blue autonomous code" />
@@ -526,7 +535,8 @@
     <MESSAGE value="Day 2 of Blue Stone Grab #6&#10;Change skystone stuff to stone stuff&#10;More booleans &amp; longs because YAY" />
     <MESSAGE value="Day 2 of Blue Stone Grab #7" />
     <MESSAGE value="Day 2 of Blue Stone Grab #8" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 2 of Blue Stone Grab #8" />
+    <MESSAGE value="Make code look cleaner (thanks Kyle)&#10;Make long strings of &quot;if&quot; into &quot;else if&quot;&#10;Hopefully make a fix for the blue stone grab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make code look cleaner (thanks Kyle)&#10;Make long strings of &quot;if&quot; into &quot;else if&quot;&#10;Hopefully make a fix for the blue stone grab" />
   </component>
   <component name="masterDetails">
     <states>

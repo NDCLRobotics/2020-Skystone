@@ -397,8 +397,8 @@ public class VLAutoBlueFoundation extends LinearOpMode {
                         telemetry.addData("Loop count:", +loopCount);
                         telemetry.addData("Time is:", finalTime);
                         telemetry.addData("Ms/loop", finalTime / loopCount);
-                        telemetry.addData(">", "Version ID: 20200302-3");
-                        telemetry.addData(">", "Latest Commit: 2020-03-02 16:38");
+                        telemetry.addData(">", "Version ID: 20200310-1");
+                        telemetry.addData(">", "Latest Commit: 2020-03-10 11:38");
                         /* if (autonomous == true)
                         {
                             do.autonomous;
