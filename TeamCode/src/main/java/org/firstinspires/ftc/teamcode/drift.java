@@ -6,17 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.Range;
 
-/*
- * Today's Changes (September 25, 2019) [DRIFT CODE, NOT OFFICIAL]
- * Messed around with code to add panning
- * Set power scale to 0.1 to test
- * Changed that back to 0.7 because by gosh it was slow
- *
- * */
-
-
-
-@TeleOp(name="VittoLogisticsDrift", group="Interactive Opmode")
+@TeleOp(name="2020NoobTestCode", group="Interactive Opmode")
 
 public class drift extends OpMode
 {
@@ -32,12 +22,12 @@ public class drift extends OpMode
         backLeftMotor = hardwareMap.dcMotor.get("backLeftMotor");
         backRightMotor = hardwareMap.dcMotor.get("backRightMotor");
 
-        //setting the direction for each motor.JBJJHGT
+        //setting the direction for each motor
         frontLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        // when we test robot, look at this and switch direction of back motors yeet
+        // when we test robot, look at this and switch direction of back motors
 
 
 
