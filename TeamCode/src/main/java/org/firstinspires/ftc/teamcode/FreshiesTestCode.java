@@ -23,10 +23,10 @@ public class FreshiesTestCode extends OpMode
         backRightMotor = hardwareMap.dcMotor.get("backRightMotor");
 
         //setting the direction for each motor
-        frontLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        backRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        backLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         // when we test robot, look at this and switch direction of back motors
 
 
@@ -54,20 +54,20 @@ public class FreshiesTestCode extends OpMode
 
 
         // panning, based on original code for two motor turning, capped at 1 and -1
-        frontLeftPan = Range.clip(drive + turn, -1.0, 1.0);
-        frontRightPan = Range.clip(drive - turn, -1.0, 1.0);
-        backLeftPan = Range.clip(drive + turn, -1.0, 1.0);
-        backRightPan = Range.clip(drive - turn, -1.0, 1.0);
+        frontLeftPan = Range.clip(drive + pan, -1.0, 1.0);
+        frontRightPan = Range.clip(drive - pan, -1.0, 1.0);
+        backLeftPan = Range.clip(drive + pan, -1.0, 1.0);
+        backRightPan = Range.clip(drive - pan, -1.0, 1.0);
         frontLeftMotor.setPower(powerScale * frontLeftPan);
         frontRightMotor.setPower(powerScale * frontRightPan);
         backLeftMotor.setPower(powerScale * backLeftPan);
         backRightMotor.setPower(powerScale * backRightPan);
 
         // turning, capped at 1 and -1
-        frontLeftPower = Range.clip(drive - pan, -1.0, 1.0);
-        frontRightPower = Range.clip(drive + pan, -1.0, 1.0);
-        backLeftPower = Range.clip(drive + pan, -1.0, 1.0);
-        backRightPower = Range.clip(drive - pan, -1.0, 1.0);
+        frontLeftPower = Range.clip(drive + turn, -1.0, 1.0);
+        frontRightPower = Range.clip(drive - turn, -1.0, 1.0);
+        backLeftPower = Range.clip(drive - turn, -1.0, 1.0);
+        backRightPower = Range.clip(drive + turn, -1.0, 1.0);
         frontLeftMotor.setPower(powerScale * frontLeftPower);
         frontRightMotor.setPower(powerScale * frontRightPower);
         backLeftMotor.setPower(powerScale * backLeftPower);
